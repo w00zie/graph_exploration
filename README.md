@@ -1,16 +1,20 @@
 # Graph Exploration with Deep Reinforcement Learning
 ----
 
-This project addresses the problem of efficiently exploring unseen environments. The aim is to build a framework where an agent can learn to explore an environment, visiting the maximum number of states in a limited number of steps. 
+This project addresses the problem of efficiently exploring unseen environments. The aim is to build a framework where an agent can learn to explore a graph, visiting the maximum number of states in a limited number of steps. 
 This has been done (at least tried) with the combination of Deep Reinforcement Learning and Geometric Deep Learning. The environments considered in this project are small **5x5 grid graphs with a few obstacles** like this one:
 
-![](img/sample.gif)
+<div style="text-align:center"><img src="img/sample.gif" /></div>
 
 ## Training
 
-An agent has been equipped with two Graph Neural Networks in order to implement the DQN (and DDQN) algorithm. The training has been done on 1 graph and the results below have been drawn from the test-set of 9 unseen graphs.
-The two (identically structure) GNNs are coded as sequential models built on top of the Gated Graph Sequence Neural Network [[1]], as implemented here [[2]]. The training goes through 10000 episodes of 25 steps each, where an exponentially-decaying epsilon-greedy strategy selects the actions for the agent. This is coded in the [training notebook](train.ipynb). Beware that the code is still quite **messy**!
-You can find a more detailed analyis in the [report](report.pdf)
+An agent has been equipped with two Graph Neural Networks[[1]] in order to implement the DQN (and DDQN) algorithm. The training has been done on 1 graph and the results below have been drawn from the test-set of 9 unseen graphs.
+The two (identically structure) GNNs are coded ([here](model.py)) as sequential models built on top of the Gated Graph Sequence Neural Network [[2]], as implemented here [[3]]. You can find a more detailed analyis in my [report](report.pdf).
+
+
+My training went throug 10000 episodes of 25 steps each, where an exponentially-decaying epsilon-greedy strategy selected the actions for the agent. You can load my training notebook [here](train.ipynb), beware that the code is quite messy. 
+
+
 
 ## Testing
 
@@ -46,22 +50,22 @@ The next table shows the results for a random policy, where the agent selects th
 | `maze_5x5_8` | 37.0 | 9.5  |   55.0   |
 | `maze_5x5_9` | 36.1 | 10.8 |   54.5   |
 
-The testing code can be found in the [testing notebook](test.ipynb). Beware that the code is still quite **messy**!
+The testing code can be found in the [testing notebook](test.ipynb). Beware that the code is quite **messy**! You may want to test locally with [`test.py`](test.py).
 
 ## Requirements
-I've written the code directly into Google Colab, if you import the notebooks into Colab (Python3 + GPU) they should work out of the box. In the next commits I'll construct a proper code structure and build a `requirements.txt`.
-
+I've written the code directly into Google Colab, if you import the notebooks into Colab (Python3 + GPU) they should work out of the box.
+The libraries used are
 ```
 numpy
-scipy
 gym
 networkx
-torch
+torch >= 1.4.0
 torch_geometric
-tensorboard
+tensorboard >= 2.0
 matplotlib
 ```
 
 
-[1]: https://arxiv.org/abs/1511.05493
-[2]: https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#torch_geometric.nn.conv.GatedGraphConv
+[1]: https://github.com/thunlp/GNNPapers
+[2]: https://arxiv.org/abs/1511.05493
+[3]: https://pytorch-geometric.readthedocs.io/en/latest/modules/nn.html#torch_geometric.nn.conv.GatedGraphConv
