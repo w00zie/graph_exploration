@@ -12,11 +12,11 @@ An agent has been equipped with two Graph Neural Networks[[1]] in order to imple
 The two (identically structure) GNNs are coded ([here](model.py)) as sequential models built on top of the Gated Graph Sequence Neural Network [[2]], as implemented here [[3]]. You can find a more detailed analyis in my [report](report.pdf).
 
 
-My training went throug 10000 episodes of 25 steps each, where an exponentially-decaying epsilon-greedy strategy selected the actions for the agent. You can load my training notebook [here](train.ipynb), beware that the code is quite messy. 
+My training went throug 10000 episodes of 25 steps each, where an exponentially-decaying epsilon-greedy strategy selected the actions for the agent. You can load my [training notebook](train.ipynb), beware that the code is quite **messy**. 
 
 <div style="text-align:center"><img src="img/metrics.png" /></div>
 
-In the plots above a few metrics where registered.
+In the plots above a few metrics are shown:
 
 1. Top left = Loss
 2. Top right = Epsilon decay
