@@ -14,6 +14,14 @@ The two (identically structure) GNNs are coded ([here](model.py)) as sequential 
 
 My training went throug 10000 episodes of 25 steps each, where an exponentially-decaying epsilon-greedy strategy selected the actions for the agent. You can load my training notebook [here](train.ipynb), beware that the code is quite messy. 
 
+<div style="text-align:center"><img src="img/metrics.png" /></div>
+
+In the plots above a few metrics where registered.
+
+1. Top left = Loss
+2. Top right = Epsilon decay
+3. Bottom left = Reward
+4. Bottom right = Nodes visited
 
 
 ## Testing
