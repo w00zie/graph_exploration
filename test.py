@@ -5,7 +5,7 @@ import numpy as np
 import torch
 from torch_geometric.data import Batch
 import os
-from traversal import GraphTraversal
+from utils.traversal import GraphTraversal
 
 
 def purely_random(path_to_map, num_episodes=50, num_steps=25):

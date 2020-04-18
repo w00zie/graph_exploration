@@ -12,7 +12,7 @@ An agent has been equipped with two Graph Neural Networks[[1]] in order to imple
 The two (identically structure) GNNs are coded ([here](model.py)) as sequential models built on top of the Gated Graph Sequence Neural Network [[2]], as implemented here [[3]]. You can find a more detailed analyis in my [report](report.pdf).
 
 
-My training went throug 10000 episodes of 25 steps each, where an exponentially-decaying epsilon-greedy strategy selected the actions for the agent. You can load my [training notebook](train.ipynb), beware that the code is quite **messy**. 
+My training went throug 10000 episodes of 25 steps each, where an exponentially-decaying epsilon-greedy strategy selected the actions for the agent. You can load my [training notebook](notebooks/train.ipynb), beware that the code is quite **messy**. 
 
 <div style="text-align:center"><img src="img/metrics.png" /></div>
 
@@ -25,6 +25,15 @@ In the plots above a few metrics are shown:
 
 
 ## Testing
+
+The 10 environments used for this project are
+
+![](img/graphs_5x5.png)
+
+where (a), (b), ..., (j) are `maze_5x5_i.npy` with `i` going from 0 to 9.
+You can plot these by running the [`plot_graph.py`](utils/plot_graph.py) script.
+
+---
 
 Every environment was tested for 30 episodes of 25 steps each, where the agent could only use the action proposed by the previously trained network. At the end of every episode the percentage of valid nodes visited by the agent has been registered and the table below shows the results in term of mean, std and best episode coverage. The agent was trained on `maze_5x5_0`.
 
@@ -58,7 +67,7 @@ The next table shows the results for a random policy, where the agent selects th
 | `maze_5x5_8` | 37.0 | 9.5  |   55.0   |
 | `maze_5x5_9` | 36.1 | 10.8 |   54.5   |
 
-The testing code can be found in the [testing notebook](test.ipynb). Beware that the code is quite **messy**! You may want to test locally with [`test.py`](test.py).
+The testing code can be found in the [testing notebook](notebooks/test.ipynb). Beware that the code is quite **messy**! You may want to test locally with [`test.py`](test.py).
 
 ## Requirements
 I've written the code directly into Google Colab, if you import the notebooks into Colab (Python3 + GPU) they should work out of the box.
